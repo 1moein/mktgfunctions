@@ -7,12 +7,20 @@
 is.sig(x, y)
 }
 \arguments{
-\item{x, y}{x and y vectors to be compared with a two-sided T-test}
+\item{x}{vector to be compared with y in a two-sided T-test}
+
+\item{y}{vector to be compared with x in a two-sided T-test}
+}
+\value{
+1 if significant difference in means, 0 if no sig. difference in means
 }
 \description{
 This function checks for significant difference in means of two vectors
 }
 \examples{
+x <- 1:20
+y <- 20:30
+is.sig(x,y)
 
 }
 \keyword{averages}

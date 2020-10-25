@@ -7,7 +7,9 @@
 Estimate_Partworth_Utilities(ratings, products)
 }
 \arguments{
-\item{ratings, products}{customer ratings of products and description table of products}
+\item{ratings}{customer ratings of products}
+
+\item{products}{description table of products}
 }
 \description{
 This function estimates partworth utilities

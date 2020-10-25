@@ -7,7 +7,9 @@
 Estimate_Market_Shares_old(product_alternatives, pws)
 }
 \arguments{
-\item{product_alternatives, pws}{product alternatives and partworths table}
+\item{product_alternatives}{product alternatives}
+
+\item{pws}{partworths table}
 }
 \description{
 This function estimates market shares for new product alternatives

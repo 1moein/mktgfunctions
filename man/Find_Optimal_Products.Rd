@@ -7,7 +7,11 @@
 Find_Optimal_Products(MS, rule, n)
 }
 \arguments{
-\item{MS, rule, n}{MS, decision rule, and n is Max_No_of_products_to_return}
+\item{MS}{market shares}
+
+\item{rule}{decision rule}
+
+\item{n}{n is Max_No_of_products_to_return}
 }
 \description{
 This function finds optimal products

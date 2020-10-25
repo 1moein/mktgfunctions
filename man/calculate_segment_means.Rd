@@ -7,7 +7,7 @@
 calculate_segment_means(df)
 }
 \arguments{
-\item{df}{The data frame of segmentation variables plus the segment membership column}
+\item{df}{The data frame of segmentation variables that also inclueds a segment column for segment membership}
 }
 \description{
 This function calculates segment means for each segmentation variable

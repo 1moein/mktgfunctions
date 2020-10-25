@@ -7,7 +7,9 @@
 Plot_MS_rule1(MS, mytext = "")
 }
 \arguments{
-\item{MS, mytext}{Market share and message}
+\item{MS}{Market share}
+
+\item{mytext}{message}
 }
 \description{
 This function plots market shares

@@ -418,7 +418,7 @@ Find_Optimal_Products <- function (MS,rule,n){
 #'
 Plot_MS_rule1 <- function(MS, mytext=""){
   # pass any additional info fro plot title using the mytext argument
-  if (!require("plotrix")) install.packages("plotrix")
+  # if (!require("plotrix")) install.packages("plotrix")
   rule  <-  1
   n <- dim(MS)[1]
   optimals1 <- Find_Optimal_Products(MS,rule,n)
@@ -444,7 +444,7 @@ Plot_MS_rule1 <- function(MS, mytext=""){
 
 Plot_MS_rule2 <- function(MS, mytext=""){
   # pass any additional info fro plot title using the mytext argument
-  if (!require("plotrix")) install.packages("plotrix")
+  # if (!require("plotrix")) install.packages("plotrix")
   rule <-  2
   n <- dim(MS)[1]
   optimals1 <- Find_Optimal_Products(MS,rule,n)
@@ -470,7 +470,7 @@ Plot_MS_rule2 <- function(MS, mytext=""){
 #'
 Plot_MS_rule3 <- function(MS, mytext=""){
   # pass any additional info fro plot title using the mytext argument
-  if (!require("plotrix")) install.packages("plotrix")
+  # if (!require("plotrix")) install.packages("plotrix")
   rule <-  3
   n <- dim(MS)[1]
   optimals1 <- Find_Optimal_Products(MS,rule,n)
@@ -495,7 +495,7 @@ Plot_MS_rule3 <- function(MS, mytext=""){
 #'
 
 Plot_MS <- function(MS,rule){
-  if (!require("plotrix")) install.packages("plotrix")
+  # if (!require("plotrix")) install.packages("plotrix")
   optimals1 <- Find_Optimal_Products(MS,rule,5)
   plothis <- optimals1
   slices <- as.numeric(plothis)

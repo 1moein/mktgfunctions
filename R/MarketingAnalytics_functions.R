@@ -37,6 +37,15 @@ is.sig <- function(x,y){
 }
 
 
+#' Calculate Segment Means
+#'
+#' This function allows you to group every three digits in a number using a comma.
+#' @param x The number you wish to add commas to.
+#' @keywords comma
+#' @export
+#' @examples
+#'
+#'
 calculate_segment_means <- function(df){
   # This function takes a data frame consisting of segmentation variables and segment memberships
   # the segment memberships is the last column of the said dataframe and is called segment.

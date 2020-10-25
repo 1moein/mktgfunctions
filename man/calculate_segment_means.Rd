@@ -7,13 +7,16 @@
 calculate_segment_means(df)
 }
 \arguments{
-\item{x}{The number you wish to add commas to.}
+\item{df}{The data frame of segmentation variables plus the segment membership column}
 }
 \description{
-This function allows you to group every three digits in a number using a comma.
+This function calculates segment means for each segmentation variable
+based on the segment memberships uncovered in the cluster analysis.
 }
 \examples{
-
+mydf <- data.frame(age=c(23,45,64,56,55,32,23,45,31,60), wealth=c(1,2,3,3,3,2,1,2,2,3),segment=c(1,2,2,2,2,1,1,2,1,2))
+calculate_segment_means(mydf)
 
 }
-\keyword{comma}
+\keyword{averages}
+\keyword{calculate}

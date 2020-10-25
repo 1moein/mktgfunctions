@@ -30,6 +30,14 @@ addcomma <- function(x){
 
 #--------Functions used in Segmentation Analysis-----------------
 
+#' Check for significant difference
+#'
+#' This function checks for significant difference in means of two vectors
+#' @param x,y x and y vectors to be compared with a two-sided T-test
+#' @keywords calculate averages
+#' @export
+#' @examples
+#'
 is.sig <- function(x,y){
   # This functions takes vectors x, and y; then itreturns 0 when there's NOT a significant difference between means of x and y
   temp <- t.test(x, y, alternative = "two.sided", conf.level=0.95, var.equal = FALSE)
@@ -39,12 +47,14 @@ is.sig <- function(x,y){
 
 #' Calculate Segment Means
 #'
-#' This function allows you to group every three digits in a number using a comma.
-#' @param x The number you wish to add commas to.
-#' @keywords comma
+#' This function calculates segment means for each segmentation variable
+#' based on the segment memberships uncovered in the cluster analysis.
+#' @param df The data frame of segmentation variables plus the segment membership column
+#' @keywords calculate averages
 #' @export
 #' @examples
-#'
+#' mydf <- data.frame(age=c(23,45,64,56,55,32,23,45,31,60), wealth=c(1,2,3,3,3,2,1,2,2,3),segment=c(1,2,2,2,2,1,1,2,1,2))
+#' calculate_segment_means(mydf)
 #'
 calculate_segment_means <- function(df){
   # This function takes a data frame consisting of segmentation variables and segment memberships
@@ -116,6 +126,13 @@ calculate_segment_means <- function(df){
 
 }
 
+#' Estimate partworth utilities
+#'
+#' This function estimates partworth utilities
+#' @param ratings,products customer ratings of products and description table of products
+#' @keywords partworth utilities
+#' @export
+#'
 
 Estimate_Partworth_Utilities <- function(ratings,products){
   # This function first regresses each respondent's ratings of the conjoint profiles on those product attributes,
@@ -211,6 +228,14 @@ Estimate_Partworth_Utilities <- function(ratings,products){
 }
 
 
+#' Estimate market share old version
+#'
+#' This function estimates market shares for new product alternatives
+#' @param product_alternatives,pws product alternatives and partworths table
+#' @keywords market shares
+#' @export
+#'
+#'
 Estimate_Market_Shares_old <- function(product_alternatives,pws){
 
   # Ensure pws variable names and product_alternatives attributes are the same
@@ -275,6 +300,15 @@ Estimate_Market_Shares_old <- function(product_alternatives,pws){
   return(tb1)
 }
 
+#' Estimate market shares
+#'
+#' This function estimates market shares for new product alternatives
+#' @param product_alternatives,pws product alternatives and partworths table
+#' @keywords market shares
+#' @export
+#'
+#'
+#'
 Estimate_Market_Shares <- function(product_alternatives,pws){
 
   # Ensure pws variable names and product_alternatives attributes are the same
@@ -343,6 +377,15 @@ Estimate_Market_Shares <- function(product_alternatives,pws){
   return(tb1)
 }
 
+#' Find optimal products
+#'
+#' This function finds optimal products
+#' @param MS,rule,n MS, decision rule, and n is Max_No_of_products_to_return
+#' @keywords optimal products
+#' @export
+#'
+#'
+#'
 Find_Optimal_Products <- function (MS,rule,n){
   #Rule can only be 1, 2, or 3
   Max_No_of_products_to_return <- n
@@ -355,6 +398,15 @@ Find_Optimal_Products <- function (MS,rule,n){
   return(optimalp[1:howmany])
 }
 
+#' Plot market shares for rule 1
+#'
+#' This function plots market shares
+#' @param MS,mytext Market share and message
+#' @keywords plot market shares
+#' @export
+#'
+#'
+#'
 Plot_MS_rule1 <- function(MS, mytext=""){
   # pass any additional info fro plot title using the mytext argument
   if (!require("plotrix")) install.packages("plotrix")
@@ -370,6 +422,15 @@ Plot_MS_rule1 <- function(MS, mytext=""){
   pie(slices, labels = mylabels, main=custommain)
    # pie3D(slices,labels=mylabels,explode=0.1, main="Market Shares using First Choice rule")
 }
+
+#' Plot market shares for rule 2
+#'
+#' This function plots market shares
+#' @param MS,mytext Market share and message
+#' @keywords plot market shares
+#' @export
+#'
+#'
 
 Plot_MS_rule2 <- function(MS, mytext=""){
   # pass any additional info fro plot title using the mytext argument
@@ -387,6 +448,15 @@ Plot_MS_rule2 <- function(MS, mytext=""){
   # pie3D(slices,labels=mylabels,explode=0.1, main="Market Shares using First Choice rule")
 }
 
+
+#' Plot market shares for rule 3
+#'
+#' This function plots market shares
+#' @param MS,mytext Market share and message
+#' @keywords plot market shares
+#' @export
+#'
+#'
 Plot_MS_rule3 <- function(MS, mytext=""){
   # pass any additional info fro plot title using the mytext argument
   if (!require("plotrix")) install.packages("plotrix")
@@ -403,6 +473,15 @@ Plot_MS_rule3 <- function(MS, mytext=""){
   # pie3D(slices,labels=mylabels,explode=0.1, main="Market Shares using First Choice rule")
 }
 
+#' Plot market shares
+#'
+#' This function plots market shares
+#' @param MS,mytext Market share and message
+#' @keywords plot market shares
+#' @export
+#'
+#'
+
 Plot_MS <- function(MS,rule){
   if (!require("plotrix")) install.packages("plotrix")
   optimals1 <- Find_Optimal_Products(MS,rule,5)
@@ -417,12 +496,24 @@ Plot_MS <- function(MS,rule){
 }
 
 
+#' Check if object is defined in the environment
+#'
+#' @param thisobject name of the object
+#' @keywords object defined
+#' @export
+#'
+#'
 is.defined <- function(thisobject) {
   sym <- deparse(substitute(thisobject))
   env <- parent.frame()
   exists(sym, env)
 }
 
+#' detach packages
+#'
+#' @keywords object defined
+#' @export
+#'
 detach.packages <- function(){
   #Detaches all additional packages from the environment
   lapply(paste('package:',names(sessionInfo()$otherPkgs),sep=""),detach,character.only=TRUE,unload=TRUE)

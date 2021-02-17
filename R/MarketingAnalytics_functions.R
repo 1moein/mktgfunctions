@@ -33,6 +33,35 @@ addcomma <- function(x){
   return(y)
 }
 
+#' Fix rlang package
+#'
+#' This function removes and installs rlang to update it to the newest version so that the broom package can be installed
+#' @keywords rlang
+#' @export
+#' @examples
+#' fix.rlang()
+#'
+fix.rlang = function(){
+  remove.packages("rlang")
+  install.packages("rlang")
+}
+
+#' Fix rlang package
+#'
+#' This function extracts the sign of a number
+#' @keywords sign
+#' @export
+#' @examples
+#' getsign(-10)
+
+getsign = function(x){
+  if (x>=0) {
+    return("+")
+  } else {
+    return("-")
+  }
+}
+
 
 #--------Functions used in Segmentation Analysis-----------------
 
